@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name="hibernate.connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/demoDB?createDatabaseIfNotExist=true
+        </property>
+        <property name="hibernate.connection.username">
+            root
+        </property>
+        <property name="hibernate.connection.password">
+            pramati
+        </property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+
+        <!-- you can make it false to disable second level cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- to enable query cache uncomment below property
+        <property name="hibernate.cache.use_query_cache">true</property> -->
+
+        <mapping class="com.hibernate.cache.model.User" />
+
+    </session-factory>
+</hibernate-configuration>
